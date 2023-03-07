@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+:root {
+    /* Paleta de cores */
+    --colo: #ffffff;
+    --col0: #000000;
+    --col1: #77A690;
+    --col2: #53735E;
+    --col3: #261912;
+    --col4: #733D29;
+    --col5: #F2F2F2;
+    /* Fontes */
+    --font0: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /** Sombra **/
+    --shadow0: 2rem 2rem 3rem #53735E4d, -2rem -2rem 3rem #9bdebf4d;
+    --shadow1: 5rem 5rem 10rem #00000043;
+}
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* padrão */
+html {
+    font-size: 62.5%;
+}
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--col1);
+}
+.component {
+    height: 30rem;
+    width: 30rem;
+    border-radius: 5rem;
+    background: var(--col1);
+    box-shadow: var(--shadow0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
