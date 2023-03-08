@@ -4,16 +4,18 @@
     /* Paleta de cores */
     --colo: #ffffff;
     --col0: #000000;
-    --col1: #77A690;
-    --col2: #53735E;
-    --col3: #261912;
-    --col4: #733D29;
-    --col5: #F2F2F2;
+    --col1: #9bdebf8b;
+    --col2: #77A690;
+    --col3: #53735E;
+    --col4: #261912;
+    --col5: #733D29;
+    --col6: #F2F2F2;
     /* Fontes */
     --font0: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     /** Sombra **/
-    --shadow0: 2rem 2rem 3rem #53735E4d, -2rem -2rem 3rem #9bdebf4d;
-    --shadow1: 5rem 5rem 10rem #00000043;
+    --shadow0: 2rem 2rem 3rem #53735E4d, -2rem -2rem 3rem #9bdebf8b;
+    --shadow1: 1rem 1rem 1.5rem #53735e4d, -1rem -1rem 1.5rem #9bdebf8d;
+    --shadow2: 5rem 5rem 10rem #00000043;
 }
 /* reset */
 * {
@@ -30,15 +32,84 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--col1);
+    background: var(--col2);
 }
 .component {
     height: 30rem;
     width: 30rem;
     border-radius: 5rem;
-    background: var(--col1);
+    background: var(--col2);
     box-shadow: var(--shadow0);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.circle {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    align-items: center;
+}
+.circle-btn {
+    position: relative;
+    grid-row: 1/2;
+    grid-column: 1/2;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    font-size: 6.4rem;
+    color: var(--col4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--col2);
+    box-shadow: var(--shadow1);
+    cursor: pointer;
+    z-index: 10;
+}
+.visibility {
+    opacity: 0;
+}
+.play {
+    position: absolute;
+    transition: all 0.4s linear;
+}
+.shadow {
+    box-shadow: inset var(--shadow1);
+}
+.pause {
+    position: absolute;
+    transition: all 0.4s linear;
+}
+.waves-1, .waves-2 {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    box-shadow: var(--shadow1);
+    filter: blur(1.5px);
+}
+.waves-1 {
+    background-color: linear-gradient(to bottom right, var(--col2) 0%, var(--col1) 100%);
+    animation: waves 4s linear infinite;
+}
+.waves-2 {
+    animation: waves 4s linear 2s infinite;
+}
+.paused {
+    animation-play-state: paused;
+}
+@keyframes waves {
+    0% {
+        transform: scale(1);
+    } 
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2.3);
+        opacity: 0;
+    }
 }
